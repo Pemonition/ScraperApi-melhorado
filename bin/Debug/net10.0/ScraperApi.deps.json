@@ -10,7 +10,6 @@
         "dependencies": {
           "Google.Protobuf": "3.28.3",
           "Grpc.Net.Client": "2.66.0",
-          "Microsoft.AspNetCore.OpenApi": "10.0.11",
           "Swashbuckle.AspNetCore": "6.8.1"
         },
         "runtime": {
@@ -55,22 +54,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.OpenApi/10.0.11": {
-        "dependencies": {
-          "Microsoft.OpenApi": "2.7.5"
-        },
+      "Microsoft.OpenApi/1.6.14": {
         "runtime": {
-          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
-            "assemblyVersion": "10.0.11.0",
-            "fileVersion": "10.0.1126.37416"
-          }
-        }
-      },
-      "Microsoft.OpenApi/2.7.5": {
-        "runtime": {
-          "lib/net8.0/Microsoft.OpenApi.dll": {
-            "assemblyVersion": "2.7.5.0",
-            "fileVersion": "2.7.5.0"
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "1.6.14.0",
+            "fileVersion": "1.6.14.0"
           }
         }
       },
@@ -83,7 +71,7 @@
       },
       "Swashbuckle.AspNetCore.Swagger/6.8.1": {
         "dependencies": {
-          "Microsoft.OpenApi": "2.7.5"
+          "Microsoft.OpenApi": "1.6.14"
         },
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.Swagger.dll": {
@@ -147,19 +135,12 @@
       "path": "grpc.net.common/2.66.0",
       "hashPath": "grpc.net.common.2.66.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.OpenApi/10.0.11": {
+    "Microsoft.OpenApi/1.6.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-R/1EATnPLU+gRfB6lwVkMcymmyAY5ppBBdRN/5lhNEiT3xP1sWccuSFkU/f1lQvN/WgRq5Vn8AhCdE3fqgsL/w==",
-      "path": "microsoft.aspnetcore.openapi/10.0.11",
-      "hashPath": "microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512"
-    },
-    "Microsoft.OpenApi/2.7.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0FA67RSnRM4tcBKqiqVu/HPdZ9+QOKbmeRjxRUGTCjPU4C0bmUhd97Dso7Yild5P7nOV6GxJ2xrK0Kv/O9xp0w==",
-      "path": "microsoft.openapi/2.7.5",
-      "hashPath": "microsoft.openapi.2.7.5.nupkg.sha512"
+      "sha512": "sha512-tTaBT8qjk3xINfESyOPE2rIellPvB7qpVqiWiyA/lACVvz+xOGiXhFUfohcx82NLbi5avzLW0lx+s6oAqQijfw==",
+      "path": "microsoft.openapi/1.6.14",
+      "hashPath": "microsoft.openapi.1.6.14.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.8.1": {
       "type": "package",

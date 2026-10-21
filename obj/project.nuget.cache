@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xrN8ZABS8uU=",
+  "dgSpecHash": "DE2z+bvoWXI=",
   "success": true,
   "projectFilePath": "/Users/rannyer/devs2blu/ScraperApi/ScraperApi.csproj",
   "expectedPackageFiles": [
@@ -9,9 +9,8 @@
     "/Users/rannyer/.nuget/packages/grpc.net.client/2.66.0/grpc.net.client.2.66.0.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/grpc.net.common/2.66.0/grpc.net.common.2.66.0.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/grpc.tools/2.66.0/grpc.tools.2.66.0.nupkg.sha512",
-    "/Users/rannyer/.nuget/packages/microsoft.aspnetcore.openapi/10.0.11/microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "/Users/rannyer/.nuget/packages/microsoft.openapi/2.7.5/microsoft.openapi.2.7.5.nupkg.sha512",
+    "/Users/rannyer/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/swashbuckle.aspnetcore/6.8.1/swashbuckle.aspnetcore.6.8.1.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/swashbuckle.aspnetcore.swagger/6.8.1/swashbuckle.aspnetcore.swagger.6.8.1.nupkg.sha512",
     "/Users/rannyer/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.8.1/swashbuckle.aspnetcore.swaggergen.6.8.1.nupkg.sha512",

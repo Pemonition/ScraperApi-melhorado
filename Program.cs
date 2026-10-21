@@ -1,4 +1,4 @@
-using ScraperApi.GrpcClients;
+using ScraperApi.GrpcClient;
 using ScraperApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);

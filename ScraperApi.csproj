@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- O microsservico Python fica no mesmo repositorio, mas fora do build .NET -->
+    <Compile Remove="scraper\**" />
+    <Content Remove="scraper\**" />
+    <None Remove="scraper\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.28.3" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.66.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.66.0" />
     <PackageReference Include="Grpc.Tools" Version="2.66.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

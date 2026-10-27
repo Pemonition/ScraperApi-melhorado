@@ -1,0 +1,4 @@
+grpcio==1.76.0
+grpcio-tools==1.76.0
+requests==2.32.5
+beautifulsoup4==4.14.2

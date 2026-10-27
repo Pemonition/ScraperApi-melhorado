@@ -1,0 +1,14 @@
+# Blueprint do Render: New > Blueprint > escolha este repositorio
+services:
+  - type: web
+    name: scraperapi-melhorado
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: Cache__Minutos
+        value: "10"
+      - key: SCRAPER_PAGINAS
+        value: "1"

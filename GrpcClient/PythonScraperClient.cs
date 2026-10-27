@@ -1,36 +1,39 @@
-using Grpc.Net.Client;
+using Microsoft.Extensions.Options;
 
 namespace ScraperApi.GrpcClient;
 using Produto;
 
 public record ProdutoDtoModel(string Titulo, string Preco);
 
+public class PythonGrpcSettings
+{
+    public string Url { get; set; } = "http://localhost:50051";
+    public int TimeoutSegundos { get; set; } = 20;
+}
+
 public interface IPythonScraperClient
 {
-    Task<IEnumerable<ProdutoDtoModel>> BuscarProdutosDoScraperAsync();
+    Task<IReadOnlyList<ProdutoDtoModel>> BuscarProdutosDoScraperAsync(CancellationToken cancellationToken = default);
 }
 
 public class PythonScraperClient : IPythonScraperClient
 {
-    private readonly IConfiguration _configuration;
+    private readonly ScraperService.ScraperServiceClient _client;
+    private readonly PythonGrpcSettings _settings;
 
-    public PythonScraperClient(IConfiguration configuration)
+    public PythonScraperClient(ScraperService.ScraperServiceClient client, IOptions<PythonGrpcSettings> settings)
     {
-        _configuration = configuration;
+        _client = client;
+        _settings = settings.Value;
     }
-    public async Task<IEnumerable<ProdutoDtoModel>> BuscarProdutosDoScraperAsync()
+
+    public async Task<IReadOnlyList<ProdutoDtoModel>> BuscarProdutosDoScraperAsync(CancellationToken cancellationToken = default)
     {
-        
-        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
+        // Deadline evita que a requisicao fique presa se o scraper travar
+        var deadline = DateTime.UtcNow.AddSeconds(_settings.TimeoutSegundos);
 
-        var pythonUrl = _configuration["PythonGrpcSettings:Url"] ?? "http://localhost:50051";
-        
-        using var chanel = GrpcChannel.ForAddress(pythonUrl);
-        var client = new ScraperService.ScraperServiceClient(chanel);
+        var response = await _client.ObterProdutosAsync(new VazioRequest(), deadline: deadline, cancellationToken: cancellationToken);
 
-        var response = await client.ObterProdutosAsync(new VazioRequest());
-
-        return response.Produtos.Select(p => new ProdutoDtoModel(p.Titulo, p.Preco));
-
+        return response.Produtos.Select(p => new ProdutoDtoModel(p.Titulo, p.Preco)).ToList();
     }
 }

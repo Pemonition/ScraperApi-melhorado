@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build da API .NET
+        run: dotnet build ScraperApi.csproj -c Release
+
+      - name: Build da imagem Docker
+        run: docker build -t scraperapi-melhorado .
+
+      - name: Teste de fumaca do container
+        run: |
+          docker run -d --name app -p 8080:8080 scraperapi-melhorado
+          for i in $(seq 1 30); do curl -sf http://localhost:8080/health && break; sleep 2; done
+          curl -sf http://localhost:8080/api/produtos | tee resposta.json
+          grep -q '"quantidade":20' resposta.json
+      - name: Logs do container
+        if: always()
+        run: docker logs app || true

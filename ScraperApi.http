@@ -1,6 +1,15 @@
 @ScraperApi_HostAddress = http://localhost:5100
 
-GET {{ScraperApi_HostAddress}}/weatherforecast/
+GET {{ScraperApi_HostAddress}}/api/produtos
 Accept: application/json
+
+###
+
+GET {{ScraperApi_HostAddress}}/api/produtos?atualizar=true
+Accept: application/json
+
+###
+
+GET {{ScraperApi_HostAddress}}/health
 
 ###

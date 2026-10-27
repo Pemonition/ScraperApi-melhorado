@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+.idea/
+.vs/
+.git/
+**/__pycache__/
+**/.venv/
+scraper/produto_pb2*.py
